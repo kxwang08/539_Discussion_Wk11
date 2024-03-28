@@ -20,25 +20,44 @@
 		// All of the steps below must be achieved using JavaScript!
 
 		// 1. Change the h1 element to your name.
-		document.querySelector("h1").textContent = "Kathy";
+		document.querySelector("h1").innerHTML = "Kathy";
+
 		// 2. Update the three span elements using ONLY JavaScript
-		document.getElementById("URL").textContent = window.location.href;
-        document.getElementById("items").textContent = document.querySelectorAll("li").length;
-        document.getElementById("time").textContent = new Date().toLocaleString();
+		document.querySelector("#URL").innerHTML = window.location.href;
+
+		var listItems = document.querySelectorAll("li").length;
+        document.querySelector("#items").innerHTML = listItems;
+        document.querySelector("#time").innerHTML = new Date();
 
     }
 
+	let counter = 0;
 	function stylePage () {
 
 		// 3. Change the background color and margin for the entire page.
 		document.body.style.backgroundColor = "#CBC3E3";
+		document.body.style.margin = "50px"
 	}
 
     // 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
     //    Each occurence should be on a separate line.  Don't use paragraphs. 
 	function copyFunction(){
-		document.getElementById("cheer").innerHTML += "Go Blue" + "<br>";
+		document.querySelector("#cheer").innerHTML += "<span>Go Blue!</span><br>";
+
+	//5. Add a counter to the page that counts the number of times the button is clicked.requires modifying something earlier
+
+		counter = counter + 1;
+		if(counter%2==1){
+			document.querySelector("#cheer span:last-of-type").style.color="blue";
+		}
+		
+		else{
+			document.querySelector("#cheer span:last-of-type").style.color="yellow";
+		}
 	}
+
+
+
 </script>
 
 
